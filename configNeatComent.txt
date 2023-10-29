@@ -1,0 +1,113 @@
+
+[NEAT]
+# Objetivo do projeto (Maximizar a pontuação)
+fitness_criterion     = max
+#Limite de pontuação para dizer que eé bom
+fitness_threshold     = 1000
+#Tamanho da população
+pop_size              = 200
+#Se todas as espécies morrerem em false ele da erro em true ele reseta as espécies
+reset_on_extinction   = False
+
+[DefaultGenome]
+# node activation options
+#Função no final do neuronio
+activation_default      = tanh
+#Taxa de mutação da função
+activation_mutate_rate  = 0.0
+#opções de mutações das funções
+activation_options      = tanh
+
+# node aggregation options
+#O que fazer com os resultados dos nós, é igual a opção anterior onde escolhemos a função
+aggregation_default     = sum
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options
+#Médoa
+bias_init_mean          = 0.0
+#Desvio padrão
+bias_init_stdev         = 1.0
+#Valores minimos e maximos
+bias_max_value          = 30.0
+bias_min_value          = -30.0
+#Poder de mutação em porcentagem
+bias_mutate_power       = 0.7
+#Chance de mutação de um bicho pra outro
+bias_mutate_rate        = 0.8
+#Criar um valor aleatório ao invès de mutar
+bias_replace_rate       = 0.1
+
+# genome compatibility options
+#Como vai separar em espécie
+compatibility_disjoint_coefficient = 1.0
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+#Probabilidade de add ou delete uma linha
+conn_add_prob           = 0.5
+conn_delete_prob        = 0.5
+
+# connection enable options
+#Todas as conexões são ativas?
+enabled_default         = True
+#Probabilidade dele criar uma nova conexão
+enabled_mutate_rate     = 0.01
+
+#Sentido de fluxo dos nós
+feed_forward            = True
+#Todos os nós vão estar conectado na próxima camada
+initial_connection      = full
+
+# node add/remove rates
+#Probabilidade de add ou delete um nó novo
+node_add_prob           = 0.2
+node_delete_prob        = 0.2
+
+# network parameters
+#Config da rede, nós intermediários/inputs/output
+num_hidden              = 0
+num_inputs              = 3
+num_outputs             = 1
+
+# node response options
+#Multplicar o valor do output antes de somar
+#Média do valor
+response_init_mean      = 1.0
+#Desvio padrão
+response_init_stdev     = 0.0
+#Valor min e max
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+#Pesos
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.7
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+#Parametro para diferenciar espécies
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+# Oque quero fazer com as espécies, maximizar
+species_fitness_func = max
+#Número max de gerações sem a espécie evoluir e dps matar
+max_stagnation       = 20
+#Após matar, pelo menos manter essa quantidade de seres
+species_elitism      = 2
+
+[DefaultReproduction]
+#Mesmo se passar vários passaros bons, passar no máximo 2 sem sofre mutação
+elitism            = 4
+#Percentual de uma espécie que vai pra uma reprodução seguinte
+survival_threshold = 0.3
